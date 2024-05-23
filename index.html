@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeBet</title>
+    <link rel="stylesheet" href="css/master.css">
+</head>
+<body>
+
+<div class="container">
+    <h1 id="title">SafeBet</h1>
+    <div class="input-group">
+        <label for="oddsRocket">Odds Rocket</label>
+        <input type="number" id="oddsRocket" step="0.01" placeholder="Enter the odds rocket">
+    </div>
+    <div class="input-group">
+        <label for="maxBet">Maximum Bet for the Rocket</label>
+        <input type="number" id="maxBet" step="0.01" placeholder="Enter the max bet for the rocket">
+    </div>
+    <div class="input-group">
+        <label for="oddsOpposing">Opposing Odds</label>
+        <input type="number" id="oddsOpposing" step="0.01" placeholder="Enter the opposing odds">
+    </div>
+    <div class="input-group">
+        <label for="accs">Number of Accounts</label>
+        <input type="number" id="accs" min="1" placeholder="Enter the number of accounts">
+    </div>
+    <div id="error" class="error" style="display:none;"></div>
+    <div id="results" class="result">
+        <p>The amount to bet on the opposing odds per account: <span id="opposingPerAcc">-</span></p>
+        <p>Total amount to bet on the opposing odds: <span id="totalOpposing">-</span></p>
+        <p>Profit per account: <span id="profitPerAcc">-</span></p>
+        <p>Total profit from accounts: <span id="totalProfit">-</span></p>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
