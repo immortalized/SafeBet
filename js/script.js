@@ -16,6 +16,9 @@ function calculate() {
 
     const errorDiv = document.getElementById('error');
     errorDiv.style.display = 'none';
+	
+	const resultDiv = document.getElementById('results');
+    resultDiv.style.display = 'none';
 
     if (
         isNaN(oddsRocket) || isNaN(maxBet) || isNaN(oddsOpposing) || isNaN(accs) ||
@@ -37,12 +40,10 @@ function calculate() {
         }
         errorDiv.style.display = 'block';
 
-        opposingResult.textContent = '-';
-        profitResult.textContent = '-';
-        totalProfitResult.textContent = '-';
-
         return;
     }
+
+	resultDiv.style.display = 'block';
 
     const opposing = Math.ceil((maxBet * oddsRocket) / oddsOpposing);
     const totalOpposing = opposing * accs;
@@ -54,3 +55,5 @@ function calculate() {
     profitResult.textContent = profit.toLocaleString("HU-hu");
     totalProfitResult.textContent = totalProfit.toLocaleString("HU-hu");
 }
+
+calculate();
