@@ -14,6 +14,13 @@
 <div class="container">
     <h1 id="title">SafeBet</h1>
     <div class="input-group">
+        <label for="betType">Bet Type</label>
+        <select id="betType">
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+    <div class="input-group">
         <label for="oddsRocket">Odds Rocket</label>
         <input type="number" id="oddsRocket" step="0.01" placeholder="Enter the odds rocket">
     </div>
@@ -25,12 +32,16 @@
         <label for="oddsOpposing">Opposing Odds</label>
         <input type="number" id="oddsOpposing" step="0.01" placeholder="Enter the opposing odds">
     </div>
+    <div class="input-group" id="intermediateOddsGroup" style="display:none;">
+        <label for="intermediateOdds">Intermediate Odds</label>
+        <input type="number" id="intermediateOdds" step="0.01" placeholder="Enter the intermediate odds">
+    </div>
     <div class="input-group">
         <label for="accs">Number of Accounts</label>
         <input type="number" id="accs" min="1" placeholder="Enter the number of accounts">
     </div>
     <div id="error" class="error" style="display:none;"></div>
-    <div id="results" class="result">
+    <div id="results" class="result" style="display:none;">
         <p>The amount to bet on the opposing odds per account: <span id="opposingPerAcc">-</span></p>
         <p>Total amount to bet on the opposing odds: <span id="totalOpposing">-</span></p>
         <p>Profit per account: <span id="profitPerAcc">-</span></p>
