@@ -86,7 +86,7 @@ function calculate() {
         profit = Math.floor((oddsRocket * maxBet) - (kpenz + epenz + maxBet));
         totalProfit = profit * accs;
         opposingResult.textContent = kpenz.toLocaleString("HU-hu");
-        totalOpposingResult.textContent = epenz.toLocaleString("HU-hu");
+        intermediateResult.textContent = epenz.toLocaleString("HU-hu");
     }
 
     // Check if profit is negative
