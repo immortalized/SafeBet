@@ -90,8 +90,8 @@ function calculate() {
         return;
     }
 
-    opposingResult.textContent = opposing ? opposing.toLocaleString("HU-hu") : '-';
-    totalOpposingResult.textContent = totalOpposing ? totalOpposing.toLocaleString("HU-hu") : '-';
+    opposingResult.textContent = opposing ? '-' : opposing.toLocaleString("HU-hu");
+    totalOpposingResult.textContent = totalOpposing ? '-' : totalOpposing.toLocaleString("HU-hu");
     profitResult.textContent = profit.toLocaleString("HU-hu");
     totalProfitResult.textContent = totalProfit.toLocaleString("HU-hu");
 }
