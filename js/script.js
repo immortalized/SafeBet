@@ -16,12 +16,12 @@ function updateForm() {
     const intermediateOddsGroup = document.getElementById('intermediateOddsGroup');
     if (betType === '3') {
         intermediateOddsGroup.style.display = 'block';
-        intermediateResult.style.display = 'block';
-        totalOpposingResult.style.display = 'none';
+        intermediateResult.parentNode.style.display = 'block';
+        totalOpposingResult.parentNode.style.display = 'none';
     } else {
         intermediateOddsGroup.style.display = 'none';
-        intermediateResult.style.display = 'none';
-        totalOpposingResult.style.display = 'block';
+        intermediateResult.parentNode.style.display = 'none';
+        totalOpposingResult.parentNode.style.display = 'block';
     }
     calculate();
 }
