@@ -9,14 +9,19 @@ const opposingResult = document.getElementById('opposingPerAcc');
 const totalOpposingResult = document.getElementById('totalOpposing');
 const profitResult = document.getElementById('profitPerAcc');
 const totalProfitResult = document.getElementById('totalProfit');
+const intermediateResult = document.getElementById('intermediatePerAcc');
 
 function updateForm() {
     const betType = document.getElementById('betType').value;
     const intermediateOddsGroup = document.getElementById('intermediateOddsGroup');
     if (betType === '3') {
         intermediateOddsGroup.style.display = 'block';
+        intermediateResult.style.display = 'block';
+        totalOpposingResult.style.display = 'none';
     } else {
         intermediateOddsGroup.style.display = 'none';
+        intermediateResult.style.display = 'none';
+        totalOpposingResult.style.display = 'block';
     }
     calculate();
 }
