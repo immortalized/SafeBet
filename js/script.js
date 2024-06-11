@@ -73,6 +73,8 @@ function calculate() {
         totalOpposing = opposing * accs;
         profit = Math.floor((oddsRocket * maxBet) - (maxBet + opposing));
         totalProfit = profit * accs;
+        opposingResult.textContent = opposing ? opposing.toLocaleString("HU-hu") : '-';
+        totalOpposingResult.textContent = totalOpposing ? totalOpposing.toLocaleString("HU-hu") : '-';
     } else {
         const kpenz = (oddsRocket * maxBet) / intermediateOdds;
         const epenz = (oddsRocket * maxBet) / oddsOpposing;
@@ -89,9 +91,7 @@ function calculate() {
         resultDiv.style.display = 'none';
         return;
     }
-
-    opposingResult.textContent = opposing ? '-' : opposing.toLocaleString("HU-hu");
-    totalOpposingResult.textContent = totalOpposing ? '-' : totalOpposing.toLocaleString("HU-hu");
+    
     profitResult.textContent = profit.toLocaleString("HU-hu");
     totalProfitResult.textContent = totalProfit.toLocaleString("HU-hu");
 }
