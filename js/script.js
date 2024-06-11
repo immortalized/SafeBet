@@ -10,6 +10,7 @@ const totalOpposingResult = document.getElementById('totalOpposing');
 const profitResult = document.getElementById('profitPerAcc');
 const totalProfitResult = document.getElementById('totalProfit');
 const intermediateResult = document.getElementById('intermediatePerAcc');
+const totalIntermediateResult = document.getElementById('totalIntermediate');
 
 function updateForm() {
     const betType = document.getElementById('betType').value;
@@ -17,11 +18,11 @@ function updateForm() {
     if (betType === '3') {
         intermediateOddsGroup.style.display = 'block';
         intermediateResult.parentNode.style.display = 'block';
-        totalOpposingResult.parentNode.style.display = 'none';
+        totalIntermediateResult.parentNode.style.display = 'none';
     } else {
         intermediateOddsGroup.style.display = 'none';
         intermediateResult.parentNode.style.display = 'none';
-        totalOpposingResult.parentNode.style.display = 'block';
+        totalIntermediateResult.parentNode.style.display = 'block';
     }
     calculate();
 }
@@ -71,7 +72,7 @@ function calculate() {
 
     resultDiv.style.display = 'block';
 
-    let opposing, totalOpposing, profit, totalProfit;
+    let opposing, totalOpposing, intermediate, totalIntermediate, profit, totalProfit;
 
     if (betType === '2') {
         opposing = Math.ceil((maxBet * oddsRocket) / oddsOpposing);
@@ -81,16 +82,20 @@ function calculate() {
         opposingResult.textContent = opposing ? opposing.toLocaleString("HU-hu") : '-';
         totalOpposingResult.textContent = totalOpposing ? totalOpposing.toLocaleString("HU-hu") : '-';
     } else {
-        const kpenz = (oddsRocket * maxBet) / intermediateOdds;
-        const epenz = (oddsRocket * maxBet) / oddsOpposing;
-        profit = Math.floor((oddsRocket * maxBet) - (kpenz + epenz + maxBet));
+        opposing = (oddsRocket * maxBet) / oddsOpposing;
+        totalOpposing = opposing * accs;
+        intermediate = (oddsRocket * maxBet) / intermediateOdds;
+        totalIntermediate = intermediate * accs;
+        profit = Math.floor((oddsRocket * maxBet) - (intermediate + opposing + maxBet));
         totalProfit = profit * accs;
-        opposingResult.textContent = kpenz.toLocaleString("HU-hu");
-        intermediateResult.textContent = epenz.toLocaleString("HU-hu");
+        opposingResult.textContent = opposing ? opposing.toLocaleString("HU-hu") : '-';
+        totalOpposingResult.textContent = totalOpposing ? totalOpposing.toLocaleString("HU-hu") : '-';
+        intermediateResult.textContent = intermediate.toLocaleString("HU-hu");
+        totalIntermediateResult.textContent = opposing.toLocaleString("HU-hu");
     }
 
     // Check if profit is negative
-    if (profit < 0) {
+    if (profit <= 0) {
         errorDiv.textContent = "Unprofitable";
         errorDiv.style.display = 'block';
         resultDiv.style.display = 'none';
