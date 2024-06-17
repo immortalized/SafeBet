@@ -91,7 +91,7 @@ function calculate() {
         opposingResult.textContent = opposing ? opposing.toLocaleString("HU-hu") : '-';
         totalOpposingResult.textContent = totalOpposing ? totalOpposing.toLocaleString("HU-hu") : '-';
         intermediateResult.textContent = intermediate.toLocaleString("HU-hu");
-        totalIntermediateResult.textContent = opposing.toLocaleString("HU-hu");
+        totalIntermediateResult.textContent = totalIntermediate.toLocaleString("HU-hu");
     }
 
     // Check if profit is negative
