@@ -18,11 +18,11 @@ function updateForm() {
     if (betType === '3') {
         intermediateOddsGroup.style.display = 'block';
         intermediateResult.parentNode.style.display = 'block';
-        totalIntermediateResult.parentNode.style.display = 'none';
+        totalIntermediateResult.parentNode.style.display = 'block';
     } else {
         intermediateOddsGroup.style.display = 'none';
         intermediateResult.parentNode.style.display = 'none';
-        totalIntermediateResult.parentNode.style.display = 'block';
+        totalIntermediateResult.parentNode.style.display = 'none';
     }
     calculate();
 }
