@@ -49,9 +49,9 @@ function calculate() {
         document.getElementById('oddsOpposing').value.trim() === '' ||
         document.getElementById('accs').value.trim() === ''
     ) {
-        const emptyFields = [oddsRocket, maxBet, oddsOpposing, accs].reduce((acc, val, index) => {
-            if (document.getElementById(['oddsRocket', 'maxBet', 'oddsOpposing', 'accs'][index]).value.trim() === '') {
-                acc.push(['Odds Rocket', 'Max Bet', 'Opposing Odds', 'Accounts'][index]);
+        const emptyFields = (betType == '2' ? [oddsRocket, maxBet, oddsOpposing, accs] : [oddsRocket, maxBet, oddsOpposing, accs, intermediateOdds]).reduce((acc, val, index) => {
+            if (document.getElementById(['oddsRocket', 'maxBet', 'oddsOpposing', 'accs', 'intermediateOdds'][index]).value.trim() === '') {
+                acc.push(['Odds Rocket', 'Max Bet', 'Opposing Odds', 'Accounts', 'Intermediate Odds'][index]);
             }
             return acc;
         }, []);
@@ -61,12 +61,6 @@ function calculate() {
         }
         errorDiv.style.display = 'block';
 
-        return;
-    }
-
-    if (betType === '3' && (isNaN(intermediateOdds) || intermediateOdds <= 0 || document.getElementById('intermediateOdds').value.trim() === '')) {
-        errorDiv.textContent = "There's an error with the following field(s): Intermediate Odds";
-        errorDiv.style.display = 'block';
         return;
     }
 
